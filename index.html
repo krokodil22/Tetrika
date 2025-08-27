@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Помоги Грише добраться до цели!</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="assets/logo.webp" alt="Тетрика" class="logo">
+      <h1>Помоги Грише добраться до цели!</h1>
+    </div>
+    <nav class="level-menu" id="levelMenu"></nav>
+  </header>
+
+  <main class="layout">
+    <section class="left-pane">
+      <div class="board-actions top-actions">
+        <button id="runBtn" class="primary">▶ Выполнить</button>
+        <button id="resetBtn">↺ Сброс</button>
+        <span id="status" class="status"></span>
+      </div>
+
+      <div id="board" class="board">
+        <img id="levelBg" class="level-bg" alt="уровень">
+        <div id="actor" class="actor" title="Гриша"></div>
+        <div id="success" class="success hidden">
+          <div id="successText" class="success-text">Молодец! Ты прошел уровень!</div>
+          <button id="nextBtn" class="primary">Перейти на следующий уровень</button>
+        </div>
+        <div id="oops" class="oops hidden">Упс, что-то не так!</div>
+      </div>
+    </section>
+
+    <aside class="right-pane">
+      <div class="commands-column">
+        <h2>Команды</h2>
+        <div class="toolbox">
+          <div class="block move" draggable="true" data-cmd="MOVE">шаг</div>
+          <div class="block right" draggable="true" data-cmd="RIGHT">повернуть направо</div>
+          <div class="block left" draggable="true" data-cmd="LEFT">повернуть налево</div>
+        </div>
+      </div>
+      <div class="program-column">
+        <h2>Программа</h2>
+        <ol id="program" class="program" aria-label="Программа" tabindex="0"></ol>
+        <div class="prog-actions">
+          <button id="clearBtn">Очистить</button>
+        </div>
+        <div class="hint">
+          Перетащите блоки слева и составьте алгоритм так, чтобы Гриша дошёл от зелёной клетки к красной.
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
