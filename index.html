@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Учебная игра: проведи героя к цели</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Проведи героя к цели</h1>
+    <div class="controls-top">
+      <label>Уровень:
+        <select id="levelSelect"></select>
+      </label>
+      <label class="speed">
+        Скорость: <input type="range" id="speed" min="0.2" max="1.5" value="0.8" step="0.1">
+      </label>
+      <label class="grid-toggle">
+        <input type="checkbox" id="toggleGrid" checked> Сетка/препятствия
+      </label>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="board-wrapper">
+      <div id="board" class="board">
+        <img id="levelBg" class="level-bg" alt="фон уровня">
+        <div id="grid" class="grid"></div>
+        <div id="goal" class="goal" title="Цель"></div>
+        <div id="actor" class="actor" title="Герой"></div>
+      </div>
+      <div class="board-actions">
+        <button id="runBtn" class="primary">▶ Выполнить</button>
+        <button id="stepBtn">▹ Шагнуть</button>
+        <button id="resetBtn">↺ Сброс</button>
+        <span id="status" class="status">Готово</span>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <h2>Команды</h2>
+      <div class="toolbox">
+        <button data-cmd="MOVE" class="cmd">Шаг</button>
+        <button data-cmd="RIGHT" class="cmd">Повернуть направо</button>
+        <button data-cmd="LEFT" class="cmd">Повернуть налево</button>
+      </div>
+
+      <h2>Программа</h2>
+      <ol id="program" class="program"></ol>
+
+      <div class="prog-actions">
+        <button id="clearBtn">Очистить</button>
+        <button id="exportBtn">Скопировать код</button>
+      </div>
+
+      <details class="help">
+        <summary>Как играть?</summary>
+        <ul>
+          <li>Добавляйте команды из панели «Команды» в список «Программа».</li>
+          <li>Команды можно перемещать вверх/вниз или удалить крестиком.</li>
+          <li>Нажмите «Выполнить», чтобы герой прошёл маршрут. «Шагнуть» — по одному шагу.</li>
+        </ul>
+      </details>
+    </aside>
+  </main>
+
+  <footer class="foot">
+    Сделано для учебных целей. Замените изображения в папке <code>assets/</code> на ваши.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
